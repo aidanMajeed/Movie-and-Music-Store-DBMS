@@ -185,31 +185,31 @@ FROM Transactions
 WHERE payment_method = 'Credit Card';
 
 INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('Interstellar', 'Christopher Nolan', 'Sci-Fi', 30, 60, 29.99, 17.99, 'BLU0000007', 'DVD0000007');
+VALUES ('Interstellar', 'Christopher Nolan', 'Sci-Fi', 30, 60, 29.99, 17.99, 'BLU0000005', 'DVD0000005');
 
 INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('The Prestige', 'Christopher Nolan', 'Drama', 25, 45, 29.99, 17.99, 'BLU0000008', 'DVD0000008');
+VALUES ('The Prestige', 'Christopher Nolan', 'Drama', 25, 45, 29.99, 17.99, 'BLU0000006', 'DVD0000006');
 
 INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('Memento', 'Christopher Nolan', 'Mystery', 18, 38, 29.99, 17.99, 'BLU0000009', 'DVD0000009');
+VALUES ('Memento', 'Christopher Nolan', 'Mystery', 18, 38, 29.99, 17.99, 'BLU0000007', 'DVD0000007');
 
 INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('Dunkirk', 'Christopher Nolan', 'War', 22, 55, 29.99, 17.99, 'BLU0000010', 'DVD0000010');
+VALUES ('Dunkirk', 'Christopher Nolan', 'War', 22, 55, 29.99, 17.99, 'BLU0000008', 'DVD0000008');
   
 INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('The Departed', 'Martin Scorsese', 'Crime', 20, 48, 29.99, 17.99, 'BLU0000011', 'DVD0000011');
+VALUES ('The Departed', 'Martin Scorsese', 'Crime', 20, 48, 29.99, 17.99, 'BLU0000009', 'DVD0000009');
 
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Stairway to Heaven', 'Led Zeppelin', 'Rock', 15, 12, 12.99, 29.99, 'CD0000007', 'VI0000007');
+VALUES ('Stairway to Heaven', 'Led Zeppelin', 'Rock', 15, 12, 12.99, 29.99, 'CD0000005', 'VI0000005');
 
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Blinding Lights', 'The Weeknd', 'Pop', 30, 25, 12.99, 29.99, 'CD0000008', 'VI0000008');
+VALUES ('Blinding Lights', 'The Weeknd', 'Pop', 30, 25, 12.99, 29.99, 'CD0000006', 'VI0000006');
   
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Bad Romance', 'Lady Gaga', 'Pop', 22, 18, 12.99, 29.99, 'CD0000009', 'VI0000009');
+VALUES ('Bad Romance', 'Lady Gaga', 'Pop', 22, 18, 12.99, 29.99, 'CD0000007', 'VI0000007');
 
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Billie Jean', 'Michael Jackson', 'Pop', 28, 20, 12.99, 29.99, 'CD0000010', 'VI0000010');
+VALUES ('Billie Jean', 'Michael Jackson', 'Pop', 28, 20, 12.99, 29.99, 'CD0000008', 'VI0000008');
   
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Hotel California', 'Eagles', 'Rock', 20, 15, 12.99, 29.99, 'CD0000011', 'VI0000011');
+VALUES ('Hotel California', 'Eagles', 'Rock', 20, 15, 12.99, 29.99, 'CD0000009', 'VI0000009');
