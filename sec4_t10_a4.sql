@@ -236,7 +236,7 @@ SELECT *
 FROM Transactions
 WHERE payment_method = 'Credit Card';
 
---aidan queries
+--aidan queries--
 CREATE VIEW TransactionDetails AS
 SELECT  C.customer_id,
         M.movie_name AS movie_product_name,
