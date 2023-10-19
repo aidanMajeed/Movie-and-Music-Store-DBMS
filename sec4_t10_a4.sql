@@ -85,7 +85,37 @@ VALUES ('Barbie', 'Greta Gerwig', 'Comedy', 12, 18, 29.99, 17.99, 'BLU0000002', 
 INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
 VALUES ('Psycho', 'Alfred Hitchcock', 'Thriller', 0, 19, 29.99, 17.99, 'BLU0000003', 'DVD0000003');
 
+INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
+VALUES ('Interstellar', 'Christopher Nolan', 'Sci-Fi', 30, 60, 29.99, 17.99, 'BLU0000005', 'DVD0000005');
 
+INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
+VALUES ('The Prestige', 'Christopher Nolan', 'Drama', 25, 45, 29.99, 17.99, 'BLU0000006', 'DVD0000006');
+
+INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
+VALUES ('Memento', 'Christopher Nolan', 'Mystery', 18, 38, 29.99, 17.99, 'BLU0000007', 'DVD0000007');
+
+INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
+VALUES ('Dunkirk', 'Christopher Nolan', 'War', 22, 55, 29.99, 17.99, 'BLU0000008', 'DVD0000008');
+  
+INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
+VALUES ('The Departed', 'Martin Scorsese', 'Crime', 20, 48, 29.99, 17.99, 'BLU0000009', 'DVD0000009');
+
+
+
+INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
+VALUES ('Stairway to Heaven', 'Led Zeppelin', 'Rock', 15, 12, 12.99, 29.99, 'CD0000005', 'VI0000005');
+
+INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
+VALUES ('Blinding Lights', 'The Weeknd', 'Pop', 30, 25, 12.99, 29.99, 'CD0000006', 'VI0000006');
+  
+INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
+VALUES ('Bad Romance', 'Lady Gaga', 'Pop', 22, 18, 12.99, 29.99, 'CD0000007', 'VI0000007');
+
+INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
+VALUES ('Billie Jean', 'Michael Jackson', 'Pop', 28, 20, 12.99, 29.99, 'CD0000008', 'VI0000008');
+  
+INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
+VALUES ('Hotel California', 'Eagles', 'Rock', 20, 15, 12.99, 29.99, 'CD0000011', 'VI0000011');
 
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
 VALUES ('No Diggity', 'Blackstreet', 'Rap', 12, 1, 12.99, 29.99, 'CD0000002', 'VI0000002');
@@ -139,7 +169,8 @@ VALUES ('T00000002', 'C00000002', 'Music', 'Flawless', 'Credit Card', 2, 59.98, 
 INSERT INTO Transactions (transaction_id, customer_id, category, item_name, payment_method, quantity, total_cost, blu_ray_id, dvd_id, CD_id, vinyl_id)
 VALUES ('T00000003', 'C00000003', 'Movie', 'Barbie', 'Debit', 1, 17.99, NULL, 'DVD0000002', NULL, NULL);
 
-
+INSERT INTO Transactions (transaction_id, customer_id, category, item_name, payment_method, quantity, total_cost, blu_ray_id, dvd_id, CD_id, vinyl_id)
+VALUES ('T00000005', 'C00000001', 'Music', 'Blinding Lights', 'Credit Card', 3, 38.97, NULL, NULL, 'CD0000008', NULL);
 
 
 INSERT INTO Administrator (admin_id, first_name, last_name, position_, access_)
@@ -205,32 +236,26 @@ SELECT *
 FROM Transactions
 WHERE payment_method = 'Credit Card';
 
-INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('Interstellar', 'Christopher Nolan', 'Sci-Fi', 30, 60, 29.99, 17.99, 'BLU0000005', 'DVD0000005');
+--aidan queries
+CREATE VIEW TransactionDetails AS
+SELECT  C.customer_id,
+        M.movie_name AS movie_product_name,
+        Mu.music_name AS music_product_name,
+        T.blu_ray_id, T.dvd_id, T.CD_id, T.vinyl_id,
+        T.transaction_id, 
+        T.payment_method, T.total_cost, 
+        C.cart_id
+FROM Transactions T
+JOIN Cart C ON T.customer_id = C.customer_id
+LEFT JOIN Movies M ON T.blu_ray_id = M.blu_ray_id OR T.dvd_id = M.dvd_id
+LEFT JOIN Music Mu ON T.CD_id = Mu.CD_id OR T.vinyl_id = Mu.vinyl_id;
 
-INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('The Prestige', 'Christopher Nolan', 'Drama', 25, 45, 29.99, 17.99, 'BLU0000006', 'DVD0000006');
+SELECT Movies.movie_name, Movies.director, Movies.genre, Customers.first_name, Customers.last_name
+FROM Movies
+JOIN Transactions ON Movies.blu_ray_id = Transactions.blu_ray_id OR Movies.dvd_id = Transactions.dvd_id
+LEFT JOIN Customers ON Transactions.customer_id = Customers.customer_id;
 
-INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('Memento', 'Christopher Nolan', 'Mystery', 18, 38, 29.99, 17.99, 'BLU0000007', 'DVD0000007');
+--jaedon queries--
 
-INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('Dunkirk', 'Christopher Nolan', 'War', 22, 55, 29.99, 17.99, 'BLU0000008', 'DVD0000008');
-  
-INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
-VALUES ('The Departed', 'Martin Scorsese', 'Crime', 20, 48, 29.99, 17.99, 'BLU0000009', 'DVD0000009');
 
-INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Stairway to Heaven', 'Led Zeppelin', 'Rock', 15, 12, 12.99, 29.99, 'CD0000005', 'VI0000005');
-
-INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Blinding Lights', 'The Weeknd', 'Pop', 30, 25, 12.99, 29.99, 'CD0000006', 'VI0000006');
-  
-INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Bad Romance', 'Lady Gaga', 'Pop', 22, 18, 12.99, 29.99, 'CD0000007', 'VI0000007');
-
-INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Billie Jean', 'Michael Jackson', 'Pop', 28, 20, 12.99, 29.99, 'CD0000008', 'VI0000008');
-  
-INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Hotel California', 'Eagles', 'Rock', 20, 15, 12.99, 29.99, 'CD0000011', 'VI0000011');
+--darien queries--
