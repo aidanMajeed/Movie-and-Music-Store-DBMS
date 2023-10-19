@@ -100,6 +100,12 @@ VALUES ('Dunkirk', 'Christopher Nolan', 'War', 22, 55, 29.99, 17.99, 'BLU0000008
 INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
 VALUES ('The Departed', 'Martin Scorsese', 'Crime', 20, 48, 29.99, 17.99, 'BLU0000009', 'DVD0000009');
 
+INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
+VALUES ('The Conjuring', 'James Wan', 'Horror', 0, 0, 29.99, 17.99, 'BLU0000010', 'DVD0000010');
+
+INSERT INTO Movies (movie_name, director, genre, blu_ray_stock, dvd_stock, blu_ray_price, dvd_price, blu_ray_id, dvd_id)
+VALUES ('A Quiet Place', 'John Krasinski', 'Horror', 0, 0, 29.99, 17.99, 'BLU0000011', 'DVD0000011');
+
 
 
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
