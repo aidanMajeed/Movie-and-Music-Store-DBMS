@@ -108,6 +108,27 @@ INSERT INTO Customers (customer_id, first_name, last_name, email, province, city
 VALUES ('C00000003', 'Eva', 'Smith', 'eva@example.com', 'Ontario', 'Toronto', 'Oak St', '789', 'M3C 3C3');
 
 
+-- Customer 4
+INSERT INTO Customers (customer_id, first_name, last_name, email, province, city, street_name, street_number, postal_code)
+VALUES ('C00000004', 'Bob', 'Miller', 'bob.miller@gmail.com', 'Ontario', 'Toronto', 'Maple St', '456', 'M1B 2C2');
+
+-- Customer 5
+INSERT INTO Customers (customer_id, first_name, last_name, email, province, city, street_name, street_number, postal_code)
+VALUES ('C00000005', 'Michaela', 'Johnson', 'michaela.j@gmail.com', 'Ontario', 'Toronto', 'Oak St', '789', 'M1C 3D3');
+
+-- Customer 6
+INSERT INTO Customers (customer_id, first_name, last_name, email, province, city, street_name, street_number, postal_code)
+VALUES ('C00000006', 'Emma', 'Davis', 'emma.d@outlook.com', 'Ontario', 'Toronto', 'Elm St', '101', 'M1D 4E4');
+
+-- Customer 7
+INSERT INTO Customers (customer_id, first_name, last_name, email, province, city, street_name, street_number, postal_code)
+VALUES ('C00000007', 'Daniel', 'Smith', 'daniel.smith@gmail.com', 'Ontario', 'Toronto', 'Cedar St', '202', 'M1E 5F5');
+
+-- Customer 8
+INSERT INTO Customers (customer_id, first_name, last_name, email, province, city, street_name, street_number, postal_code)
+VALUES ('C00000008', 'Olivia', 'Martin', 'olivia.m@outlook.com', 'Ontario', 'Toronto', 'Pine St', '303', 'M1F 6G6');
+
+
 
 INSERT INTO Transactions (transaction_id, customer_id, category, item_name, payment_method, quantity, total_cost, blu_ray_id, dvd_id, CD_id, vinyl_id)
 VALUES ('T00000001', 'C00000001', 'Movie', 'Oppenheimer', 'Credit Card', 2, 59.98, 'BLU0000001', NULL, NULL, NULL);
@@ -212,4 +233,4 @@ INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, v
 VALUES ('Billie Jean', 'Michael Jackson', 'Pop', 28, 20, 12.99, 29.99, 'CD0000008', 'VI0000008');
   
 INSERT INTO Music (music_name, artist, genre, CD_stock, vinyl_stock, CD_price, vinyl_price, CD_id, vinyl_id)
-VALUES ('Hotel California', 'Eagles', 'Rock', 20, 15, 12.99, 29.99, 'CD0000009', 'VI0000009');
+VALUES ('Hotel California', 'Eagles', 'Rock', 20, 15, 12.99, 29.99, 'CD0000011', 'VI0000011');
