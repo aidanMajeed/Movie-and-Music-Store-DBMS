@@ -262,6 +262,16 @@ JOIN Transactions ON Movies.blu_ray_id = Transactions.blu_ray_id OR Movies.dvd_i
 LEFT JOIN Customers ON Transactions.customer_id = Customers.customer_id;
 
 --jaedon queries--
+SELECT Customers.first_name, Customers.last_name, Music.music_name, SUM(Transactions.quantity) AS total_quantity
+FROM Transactions
+JOIN Customers ON Transactions.customer_id = Customers.customer_id
+JOIN Music ON Transactions.item_name = Music.music_name
+GROUP BY Customers.first_name, Customers.last_name, Music.music_name;
+
+CREATE VIEW AvailableMoviesView AS
+SELECT movie_name, director, genre, blu_ray_stock, dvd_stock
+FROM Movies
+WHERE blu_ray_stock > 0 OR dvd_stock > 0;
 
 
 --darien queries--
