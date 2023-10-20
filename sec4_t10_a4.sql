@@ -273,5 +273,14 @@ SELECT movie_name, director, genre, blu_ray_stock, dvd_stock
 FROM Movies
 WHERE blu_ray_stock > 0 OR dvd_stock > 0;
 
-
 --darien queries--
+
+CREATE VIEW Admin AS
+SELECT admin_id, first_name, last_name
+FROM Administrator
+WHERE position_ = 'manager';
+
+SELECT T.customer_id, T.transaction_id, T.item_name, T.quantity, T.total_cost, C.cart_id, Customers.email
+FROM Transactions T
+JOIN Customers ON T.customer_id = Customers.customer_id
+JOIN Cart C ON T.customer_id = C.customer_id;
