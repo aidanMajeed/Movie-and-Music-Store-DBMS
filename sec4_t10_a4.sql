@@ -178,6 +178,9 @@ VALUES ('T00000003', 'C00000003', 'Movie', 'Barbie', 'Debit', 1, 17.99, NULL, 'D
 INSERT INTO Transactions (transaction_id, customer_id, category, item_name, payment_method, quantity, total_cost, blu_ray_id, dvd_id, CD_id, vinyl_id)
 VALUES ('T00000005', 'C00000001', 'Music', 'Blinding Lights', 'Credit Card', 3, 38.97, NULL, NULL, 'CD0000008', NULL);
 
+INSERT INTO Transactions (transaction_id, customer_id, category, item_name, payment_method, quantity, total_cost, blu_ray_id, dvd_id, CD_id, vinyl_id)
+VALUES ('T00000006', 'C00000001', 'Music', 'Billie Jean', 'Credit Card', 1, 12.99, NULL, NULL, NULL, 'VI0000008');
+
 
 INSERT INTO Administrator (admin_id, first_name, last_name, position_, access_)
 VALUES ('A00000001', 'Steven', 'Stone', 'manager', 'Movie,Music,Customer,Transaction');
