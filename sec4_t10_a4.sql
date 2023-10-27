@@ -287,3 +287,85 @@ SELECT T.customer_id, T.transaction_id, T.item_name, T.quantity, T.total_cost, C
 FROM Transactions T
 JOIN Customers ON T.customer_id = Customers.customer_id
 JOIN Cart C ON T.customer_id = C.customer_id;
+
+
+--a5 queries
+
+--Query 1: Find which customers bought only movies and no music
+SELECT C.customer_id, C.first_name, C.last_name
+FROM Customers C
+WHERE EXISTS (
+   SELECT 1
+   FROM Transactions T
+   WHERE T.customer_id = C.customer_id AND T.category = 'Movie'
+)
+MINUS
+SELECT C.customer_id, C.first_name, C.last_name
+FROM Customers C
+WHERE EXISTS (
+   SELECT 1
+   FROM Transactions T
+   WHERE T.customer_id = C.customer_id AND T.category = 'Music'
+);
+
+
+--Query 2: Select movie names and directors, music names and artists who’s movie genre is Horror and Rap
+
+SELECT movie_name AS item_name, director
+FROM Movies
+WHERE genre = 'Horror'
+UNION
+SELECT music_name AS item_name, artist
+FROM Music
+WHERE genre = 'Rap';
+
+
+
+--Query 3: Displays the count of customers with “example.com” email addresses grouped by each postal code, where each customer must have an active transaction entry having spent 12.99 or more
+
+SELECT c.postal_code, COUNT(c.customer_id) AS customer_count
+FROM Customers c
+JOIN Transactions t ON c.customer_id = t.customer_id
+WHERE c.email LIKE '%example.com'
+GROUP BY c.postal_code
+HAVING SUM(t.total_cost) > 12.99
+ORDER BY customer_count ASC;
+
+--Query 4: Count the number of customers who has more than 1 transaction and spent a total amount greater than $25
+
+SELECT customer_id, COUNT(*) AS order_count, SUM(total_cost) AS total_amount
+FROM Transactions
+GROUP BY customer_id
+HAVING COUNT(*) > 1 AND SUM(total_cost) > 25;
+
+--Query 5: find customers from Ontario, specifically in Toronto,  but without postal code M1A 1A1
+
+(SELECT first_name, last_name
+FROM Customers
+WHERE province = 'Ontario'
+UNION 
+SELECT first_name, last_name
+FROM Customers
+WHERE city = 'Toronto')
+MINUS
+(SELECT first_name, last_name
+FROM Customers
+WHERE postal_code = 'M1A 1A1');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
