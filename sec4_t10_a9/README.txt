@@ -1,6 +1,4 @@
-Aidan Majeed (501084337)
-Jaedon Smith (501114117)
-Darien Choueiri (500986669)
+
 
 THIS FOLDER INCLUDES:
 
